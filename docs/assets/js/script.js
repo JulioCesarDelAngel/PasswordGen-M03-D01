@@ -1,5 +1,6 @@
-var passwordLengt     = 8;
-var segmentlength     = 0;
+var passwordLengt = 8;
+var segmentlength = 0;
+var lengthKey     = "" ;
 
 var specialList = [" ", "!", "\"", "#", "$", "%", "&", "\'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\", "]","^","_","`","{","|","}","~" ];
 var charList    = ["a", "b", "c", "d", "e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -15,6 +16,7 @@ var optionList  = [
 
 // Código de asignación
 var generateBtn = document.querySelector("#generate");
+var copyBtn= document.getElementById("copy")
 
 // Escriba la contraseña en la entrada #password
 function writePassword() {
@@ -28,7 +30,7 @@ function writePassword() {
 
 // Agregar oyente de eventos para generar el botón
 generateBtn.addEventListener("click", writePassword);
-
+copyBtn.addEventListener("click",copyText)
 
 function generatePassword(){
 
@@ -49,7 +51,7 @@ function generatePassword(){
   }
 
   //debugger
-  var lengthKey = "" ;
+  lengthKey = "" ;
   var i=0;
 
   while ( lengthKey.length < passwordLengt ) {
@@ -116,6 +118,14 @@ function includeSegment(mensaje, llave){
   return;
 }
 
+function copyText(){
+  var element = document.getElementById("password");  
+  element.select();
+  element.setSelectionRange(0,99999);
+  navigator.clipboard.writeText(element.value);
+  alert("copiado: " + element.value);
+
+}
 function messageBox(message){
   var passwordText = document.querySelector("#password");
   passwordText.value = message;

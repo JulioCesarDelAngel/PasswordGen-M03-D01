@@ -9,15 +9,20 @@
   </head>
   <body>
     <div class="wrapper">
+      
       <header>
         <h1>Generador de contraseñas</h1>
+        <div id="message-box"></div>
       </header>
       <div class="card">
         <div class="card-header">
           <h2>Generar una contraseña</h2>
         </div>
         <div class="card-body">
-          <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
+          <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password">            
+          </textarea>
+          <button id="copy" class="btn-copy"></button>
+          
         </div>
         <div class="card-footer">
           <button id="generate" class="btn">Generar contraseña</button>
