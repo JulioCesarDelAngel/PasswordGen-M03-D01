@@ -123,10 +123,17 @@ function copyText(){
   element.select();
   element.setSelectionRange(0,99999);
   navigator.clipboard.writeText(element.value);
-  alert("copiado: " + element.value);
+  messageBox("Contraseña copiada.");
+  //alert("copiado: " + element.value);
 
 }
+
 function messageBox(message){
-  var passwordText = document.querySelector("#password");
-  passwordText.value = message;
+  var divmessagebox = document.getElementById("snackbar");
+  divmessagebox.textContent =message;
+  divmessagebox.className = "show";
+  setTimeout( function () {divmessagebox.className = divmessagebox.className.replace("show","");}, 2000
+
+  )
+
 }
